@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Expertise</title>
+    <style>
+        body {
+            background: url("images/expertise (2).jfif") no-repeat center center fixed;
+            background-size: cover;
+            font-family: Lucida;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            filter: brightness(80%);
+        }
+
+        header {
+            background-color: maroon;
+            color: #F5DEB3;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            background-color: #EED8AE;
+            padding: 12px 20px;
+            margin: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        nav a {
+            background-color: #F5E6C5;
+            color: maroon;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+        }
+
+        nav a:hover {
+            background-color: maroon;
+            color: #F5E6C5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(128,0,0,0.3);
+        }
+
+        main {
+            flex: 1;
+           background-color: rgba(255, 218, 185, 0.85); /* peachpuff with transparency */
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer {
+            background: maroon;
+            color: sandybrown;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Titles */
+        h2 {
+            font-size: 28px;
+            color: black;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        p.subtitle {
+            font-size: 18px;
+            font-style: italic;
+            color: #5b3a3a;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+            animation-delay: 0.4s;
+            text-align: center;
+        }
+
+        /* Expertise Card Section */
+        .expertise-grid {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+            animation-delay: 0.8s;
+        }
+
+        /* Bigger card + spinning effect */
+        .expertise-card {
+            background: #fff;
+            width: 220px;
+            padding: 25px 20px;
+            border-radius: 15px;
+            box-shadow: 2px 4px 10px rgba(0,0,0,0.15);
+            transition: 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .expertise-card:hover {
+            transform: rotateY(360deg) scale(1.05);
+        }
+
+        .expertise-card img {
+            width: 110px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .expertise-title {
+            font-size: 18px;
+            color: maroon;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .expertise-desc {
+            font-size: 15px;
+            color: #5b3a3a;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+        .divider {
+            font-size: 20px;
+            color: maroon;
+            margin: 30px 0;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+            animation-delay: 1s;
+        }
+
+        /* Auto Slide Film Strip Gallery (B2) */
+        .film-strip-container {
+            width: 100%;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .film-strip {
+            display: flex;
+            gap: 15px;
+            animation: slide 25s linear infinite;
+        }
+
+        .film-strip img {
+            width: 180px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Explore Button */
+       .explore-btn {
+          display: inline-block;
+          margin-top: 35px;
+          background-color: maroon;
+          color: #F5E6C5;
+          padding: 12px 35px;
+          border-radius: 30px;
+         font-size: 18px;
+         text-decoration: none;
+         font-weight: bold;
+         box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+         transition: 0.3s ease;
+        }
+
+        .explore-btn:hover {
+         background-color: #F5E6C5;
+         color: maroon;
+         transform: translateY(-3px) scale(1.05);
+         box-shadow: 0 6px 15px rgba(128,0,0,0.3);
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1><b>BETWEEN QUIET DAYS ˚.🎀༘⋆</b></h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about me.html">About Me</a>
+    <a href="education.html">Education</a>
+    <a href="expertise.html">Expertise</a>
+    <a href="family.html">Family</a>
+    <a href="friends.html">Friends</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="favourite.html">Favourite</a>
+</nav>
+
+<main>
+    <h2>MY EXPERIENCE ✦⋆</h2>
+    <p class="subtitle">A collection of skills I’ve learned and grown with ♡</p>
+
+    <!-- Expertise Section -->
+    <div class="expertise-grid">
+
+        <div class="expertise-card">
+            <img src="images/flower 2.jpg">
+            <div class="expertise-title">Learn Photography [◉¯]</div>
+            <div class="expertise-desc">This is the little corner where I keep the moments I’ve learned to capture.I’m still growing, still exploring, still learning how to see beauty through a lens.<br></br>Every photo here is part of my journey some colors, quiet details, and memories that feel warm.I love learning new angles, new lighting, and new ways to tell a story through a single frame.<br></br>These pictures aren’t perfect, but they’re honest and they show how my eyes are learning to listen to the world and Each shot holds a small piece of me my curiosity, my calm, and the way I treasure simple moments˖°📷༘.</div>
+        </div>
+
+        <div class="expertise-card">
+            <img src="images/smpp.jpg">
+            <div class="expertise-title">Sekreteriat Majlis Perwakilan Pelajar ⋆.°🦋⋆</div>
+            <div class="expertise-desc">The part of my story where everything started to unfold where I keep the moments that shaped who I’m becoming.I’m still learning, still exploring, still finding my voice in leadership and service.<br></br>Every meeting, every task, every event is part of my journey quiet lessons, warm connections, and memories that taught me to grow.I love discovering new ways to work with people, new ways to communicate, and new ways to bring ideas to life.<br></br>These experiences weren’t always easy, but they were true and they continue to guide me toward the person I’m learning to be.-`♡´-.</div>
+        </div>
+
+        <div class="expertise-card">
+            <img src="images/exco.jpg">
+            <div class="expertise-title">Exco ORC (Outdoor Recreation Club) UiTM 🌷</div>
+            <div class="expertise-desc">This is the gentle space where I keep the moments that carried me from Sekretariat to becoming an Exco of the Outdoor Recreation Club. I’m still learning, still exploring, still finding beauty in the wild places that challenge and shape me.<br></br>Every hike, every event, every outdoor memory is part of my journey fresh air, quiet strength, and moments that feel alive.<br></br>I love discovering new trails, new experiences, and new ways to connect with people through adventure and teamwork.These moments weren’t always gentle, but they’re full of lessons and they show how I’m learning to grow with courage and lead with heart.☘︎ ݁˖.</div>
+        </div>
+
+        <div class="expertise-card">
+            <img src="images/internship.jpg">
+            <div class="expertise-title">Internship Experience 💼</div>
+            <div class="expertise-desc">This is the part of my story where everything felt new, new rooms, new faces, and routines that slowly became familiar. I stepped in with quiet nerves and gentle hope, and each day unfolded its own soft lesson.<br></br>I learned to move with intention, to listen with patience, and to follow the steady rhythm of real work. Some days were slow, some were full, but each one taught me something about effort, trust, and quiet strength.<br></br> I found beauty in the small things a task done with care, a kind reminder, the feeling of becoming better without realizing it. Nothing was perfect, yet everything felt meaningful, and somewhere in the midst of it all, I grew☕️📑.</div>
+        </div>
+
+    </div>
+
+    <div class="divider">──────── ⋆⋅☆⋅⋆ ────────</div>
+
+    <!-- Photography Auto Film Strip -->
+    <h2>MY PHOTOGRAPHY COLLECTION 🎞️✨</h2>
+
+    <div class="film-strip-container">
+        <div class="film-strip">
+            <!-- Duplicate the images set twice to ensure smooth looping -->
+            <img src="images/old building.jpg">
+            <img src="images/deanlist.jpg">
+            <img src="images/flower.jpg">
+            <img src="images/fraser hill.jpg">
+            <img src="images/elmina.jpg">
+            <img src="images/swan.jpg">
+
+            <img src="images/old building.jpg">
+            <img src="images/deanlist.jpg">
+            <img src="images/flower.jpg">
+            <img src="images/fraser hill.jpg">
+            <img src="images/elmina.jpg">
+            <img src="images/swan.jpg">
+        </div>
+    </div>
+
+<a class="explore-btn" href="family.html">Meet My Family ˚⟡˖ ࣪</a>
+</main>
+
+<footer>
+    <p>&copy; 2025 This website is for educational purposes only | With Love, Syamimi</p>
+</footer>
+
+</body>
+</html>

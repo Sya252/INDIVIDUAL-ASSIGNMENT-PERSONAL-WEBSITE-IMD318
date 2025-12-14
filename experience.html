@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Experience</title>
+    <style>
+        {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: peachpuff;
+            font-family: Lucida;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            width: 100vw;
+            overflow-x: hidden !important;
+        }
+
+        header {
+            background-color: maroon;
+            color: #F5DEB3;
+            padding: 50px;
+            text-align: center;
+            width: 100%;
+        }
+
+        header h1 {
+            font-size: 2.15em !important; 
+            margin: 0; 
+            padding: 0;
+        }
+        
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            background-color: #EED8AE;
+            padding: 10px 20px;
+            margin: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            width: 100%;
+        }
+
+        nav a {
+            background-color: #F5E6C5;
+            color: maroon;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+        }
+
+        nav a:hover {
+            background-color: maroon;
+            color: #F5E6C5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(128,0,0,0.3);
+        }
+
+        main {
+            flex: 1;
+            background-color: peachpuff;
+            padding: 40px;
+            text-align: center;
+        }
+
+        footer {
+            background: maroon;
+            color: sandybrown;
+            padding: 20px;
+            text-align: center;
+            font-family: Lucida;
+        }
+        .timeline {
+            position: relative;
+            max-width: 900px; 
+            margin: 40px auto; 
+            background-color: #fff8f8; 
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: maroon;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-entry {
+            padding: 20px;
+            position: relative;
+            background-color: #fff0f0;
+            border-radius: 10px;
+            width: 45%; 
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateX(0);
+            transition: all 1s ease;
+        }
+
+        .timeline-entry.left {
+            left: 0;
+            transform: translateY(20px); 
+        }
+
+        .timeline-entry.right {
+            left: 52%; 
+            transform: translateY(20px);
+        }
+
+
+        .timeline-entry.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-entry::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: maroon;
+            border: 4px solid #fff;
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
+        }
+
+        .timeline-entry.left::before { right: -10px; }
+        .timeline-entry.right::before { left: -10px; }
+
+        /* Flip mini photo */
+        .flip-mini {
+            width: 90px;
+            height: 90px;
+            margin: 10px auto;
+            border-radius: 12px;
+            border: 2px solid #b76e79;
+            overflow: hidden;
+            position: relative;
+            perspective: 1000px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .flip-inner {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            border-radius: 12px;
+        }
+
+        .flip-mini:hover .flip-inner { transform: rotateY(180deg); }
+
+        .flip-front, .flip-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            border-radius: 12px;
+        }
+
+        .flip-front img, .flip-back img {
+            max-width: 100%;
+            height: 100%; 
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .flip-back { transform: rotateY(180deg); }
+
+        @media screen and (max-width: 900px) {
+            .timeline-entry,
+            .timeline-entry.left,
+            .timeline-entry.right {
+                width: 90%;
+                left: 0 !important;
+            }
+            .timeline-entry::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1><b>BETWEEN QUIET DAYS ˚.🎀༘⋆</b></h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about me.html">About Me</a>
+    <a href="experience.html">Experience</a>
+    <a href="education.html">Education</a>
+    <a href="family.html">Family</a>
+    <a href="friends.html">Friends</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="favourite.html">Favourite</a>
+</nav>
+
+<main>
+    <h2>GAINING EXPERIENCE, GROWING STRONGER</h2>
+    <p>Every experience shaped who I am today. ✿</p>
+
+    <div class="timeline">
+        <div class="timeline-entry left">
+            <h3>Sekreteriat Majlis Perwakilan Pelajar 23/24</h3>
+            <div class="flip-mini">
+                <div class="flip-inner">
+                    <div class="flip-front"><img src="images/cafe_intern.jpg"></div>
+                    <div class="flip-back"><img src="images/cafe_intern2.jpg"></div>
+                </div>
+            </div>
+            <p>Managed a big program under UiTM during my first semester of 2023-2024.✨</p>
+        </div>
+
+        <div class="timeline-entry right">
+            <h3>Sekreteriat Outdoor Recreation Club (ORC)</h3>
+            <div class="flip-mini">
+                <div class="flip-inner">
+                    <div class="flip-front"><img src="images/photo_workshop.jpg"></div>
+                    <div class="flip-back"><img src="images/photo_edit.jpg"></div>
+                </div>
+            </div>
+            <p>Improved my skills in taking aesthetic, film-like photos. 📷</p>
+        </div>
+
+        <div class="timeline-entry left">
+            <h3>Internship</h3>
+            <div class="flip-mini">
+                <div class="flip-inner">
+                    <div class="flip-front"><img src="images/volunteer1.jpg"></div>
+                    <div class="flip-back"><img src="images/volunteer2.jpg"></div>
+                </div>
+            </div>
+            <p>Helped organize local events & gained teamwork experience. 🤝</p>
+        </div>
+
+        <div class="timeline-entry right">
+            <h3>Learning about photography</h3>
+            <div class="flip-mini">
+                <div class="flip-inner">
+                    <div class="flip-front"><img src="images/blog.jpg"></div>
+                    <div class="flip-back"><img src="images/blog2.jpg"></div>
+                </div>
+            </div>
+            <p>Shared personal stories and photography tips. ✨📝</p>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 This website is for educational purposes only | With Love, Syamimi </p>
+</footer>
+
+<script>
+    // Timeline fade-in
+    const timelineEntries = document.querySelectorAll('.timeline-entry');
+    function revealTimeline() {
+        const triggerBottom = window.innerHeight / 5 * 4;
+        timelineEntries.forEach(entry => {
+            const entryTop = entry.getBoundingClientRect().top;
+            if(entryTop < triggerBottom) {
+                entry.classList.add('show');
+            }
+        });
+    }
+    window.addEventListener('scroll', revealTimeline);
+    window.addEventListener('load', revealTimeline);
+</script>
+
+</body>
+</html>

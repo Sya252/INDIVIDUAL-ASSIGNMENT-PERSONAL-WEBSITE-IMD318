@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<title>About Me</title>
+	<style>
+		body {
+			background: url("images/aboutme.jfif") no-repeat center center fixed;
+			background-size: cover;
+			font-family: Lucida;
+			text-align: center;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+			filter: brightness(80%);
+		}
+
+		header {
+			background-color: maroon;
+			color: #F5DEB3;
+			padding: 20px;
+			text-align: center;
+		}
+
+		/* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            background-color: #EED8AE;
+            padding: 12px 20px;
+            margin: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        nav a {
+            background-color: #F5E6C5;
+            color: maroon;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+        }
+
+        nav a:hover {
+            background-color: maroon;
+            color: #F5E6C5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(128,0,0,0.3);
+        }
+
+		main {
+			flex: 1;
+			background-color: rgba(255, 218, 185, 0.85); /* peachpuff with transparency */
+			padding: 40px;
+			text-align: center;
+		}
+
+		footer {
+			background: maroon;
+			color: sandybrown;
+			padding: 20px;
+			text-align: center;
+			font-family: Lucida;
+		}
+
+		/* ==== PAGE ANIMATION (ONLY MAIN CONTENT) ==== */
+		.fade-slide {
+			opacity: 0;
+			transform: translateY(20px);
+			animation: fadeSlide 1.3s ease forwards;
+		}
+
+		@keyframes fadeSlide {
+			0% {
+				opacity: 0;
+				transform: translateY(20px);
+			}
+			100% {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.delay-1 { animation-delay: 0.3s; }
+		.delay-2 { animation-delay: 0.6s; }
+		.delay-3 { animation-delay: 0.9s; }
+
+		/* Quote Style */
+		.quote {
+			font-style: italic;
+			font-size: 18px;
+			color: #5b3a3a;
+			margin: 20px 0 25px 0; /* spacing above and below */
+			line-height: 1.6;
+		}
+
+		/* ===== Education Button ===== */
+		.go-education-btn {
+			display: inline-block;
+			background-color: maroon;
+			color: #F5DEB3;
+			padding: 12px 28px;
+			border-radius: 30px;
+			font-size: 18px;
+			font-weight: bold;
+			text-decoration: none;
+			margin-top: 25px;
+			box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+			transition: 0.3s;
+		}
+
+		.go-education-btn:hover {
+			background-color: #F5DEB3;
+			color: maroon;
+			transform: translateY(-3px) scale(1.05);
+			box-shadow: 0 6px 20px rgba(128,0,0,0.3);
+		}
+
+		.picture-container {
+			display: flex;
+			justify-content: center;
+			gap: 20px;
+			margin-bottom: 30px;
+		}
+
+		.picture-container img {
+			width: 280px;
+			height: 280px;
+			border-radius: 25px;
+			object-fit: cover;
+			border: 5px solid #b76e79;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+		}
+
+		.about-text {
+			max-width: 700px;
+			text-align: left;
+			color: #5b3a3a;
+			padding: 30px;
+			border-left: 6px dotted maroon;
+			border-right: 6px dotted #b76e79;
+			background: linear-gradient(
+				to bottom,
+				#fff8f8 0%,
+				#fff8f8 49%,
+				#fceaea 50%,
+				#fff8f8 100%
+			);
+			background-size: 100% 40px;
+			border-radius: 20px;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+			margin: 0 auto 40px auto;
+		}
+
+		.about-text h2 {
+			color: maroon;
+			font-size: 26px;
+			margin-bottom: 10px;
+		}
+
+		.about-text p {
+			font-size: 18px;
+			line-height: 1.6;
+		}
+
+		.section-box-container {
+			display: flex;
+			justify-content: center;
+			gap: 20px;
+			margin-bottom: 20px;
+			flex-wrap: wrap;
+		}
+
+		.section-box {
+			background: repeating-linear-gradient(
+				0deg,
+				#fff0f0,
+				#fff0f0 20px,
+				#ffeaea 20px,
+				#ffeaea 40px
+			);
+			border: 2px dashed #b76e79;
+			border-radius: 15px;
+			padding: 25px 20px;
+			width: 240px;
+			box-shadow: 0 4px 6px rgba(128,0,0,0.1);
+			transition: 0.3s;
+			position: relative;
+		}
+
+		.section-box:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 6px 12px rgba(128,0,0,0.2);
+		}
+
+		.section-box h3 {
+			color: maroon;
+			font-size: 20px;
+			text-align: center;
+			margin-bottom: 10px;
+		}
+
+		/* --------- FLIP EFFECT ----------- */
+		.flip-mini {
+			width: 90px;
+			height: 90px;
+			margin: 0 auto 10px auto;
+			border-radius: 12px;
+			border: 2px solid #b76e79;
+			box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+			position: relative;
+			perspective: 1000px;
+		}
+
+		.flip-inner {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			transition: transform 0.6s;
+			transform-style: preserve-3d;
+			border-radius: 12px;
+		}
+
+		.flip-mini:hover .flip-inner {
+			transform: rotateY(180deg);
+		}
+
+		.flip-front, .flip-back {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			backface-visibility: hidden;
+			border-radius: 12px;
+		}
+
+		.flip-front img,
+		.flip-back img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 12px;
+		}
+
+		.flip-back {
+			transform: rotateY(180deg);
+		}
+
+		.section-box ul {
+			list-style-type: none;
+			padding-left: 0;
+			margin: 10px 0 0 0;
+		}
+
+		.section-box ul li {
+			position: relative;
+			padding-left: 20px;
+			margin-bottom: 10px;
+			line-height: 1.8;
+			color: #5b3a3a;
+		}
+
+		.section-box ul li::before {
+			content: "♡";
+			position: absolute;
+			left: 0;
+			color: maroon;
+			font-size: 16px;
+		}
+
+		@media screen and (max-width: 900px) {
+			.picture-container {
+				flex-direction: column;
+			}
+			.section-box-container {
+				flex-direction: column;
+				width: 100%;
+				margin-top: 20px;
+			}
+			.section-box {
+				width: 80%;
+			}
+		}
+	</style>
+</head>
+
+<body>
+<header>
+	<h1><b>BETWEEN QUIET DAYS ˚.🎀༘⋆</b></h1>
+</header>
+
+<nav>
+	<a href="index.html">Home</a>
+	<a href="about me.html">About Me</a>
+	<a href="education.html">Education</a>
+	<a href="expertise.html">Expertise</a>
+	<a href="family.html">Family</a>
+	<a href="friends.html">Friends</a>
+	<a href="gallery.html">Gallery</a>
+	<a href="favourite.html">Favourite</a>
+</nav>
+
+<main>
+
+	<h2 class="fade-slide"> HERE'S A LITTLE PIECE OF WHO I AM 🎧♡</h2>
+
+	<!-- Quote under heading -->
+	<p class="quote fade-slide delay-1">
+		Want to know about me? Well, here’s my story! ୨୧
+	</p>
+
+	<div class="picture-container fade-slide delay-2">
+		<img src="images/my picture.jpg">
+		<img src="images/my picture 2.jpg">
+	</div>
+
+	<div class="about-text fade-slide delay-3">
+		<h2>Hi, I’m Syamimi! ♡</h2>
+		<p>
+			I’m someone who finds joy in calm, cozy days by journaling, spending time with loved ones, taking pictures with my camera, and creating little memories that make life special. I love to create meaningful moments with the people I care about and build new connections with those I meet along the way. 
+            <br><br>
+			I enjoy trying new things whether it’s exploring a new place, learning a new skill, or simply stepping out of my comfort zone because every experience teaches me something valuable.
+			<br><br>
+			To me, life is about appreciating the simple joys, cherishing the people who make you smile, and collecting moments that tell your story. My little corner here is where I share pieces of myself, my thoughts, and the things that make my heart feel full.
+			<br><br>
+			This website is a small reflection of my journey: a mix of things I love, experiences I’ve had, and the people who make my world brighter.  
+			<br><br>
+			Thank you for being here and taking a glimpse into my quiet days🌷✨
+		</p>
+	</div>
+
+	<!-- MINI BOXES -->
+	<div class="section-box-container fade-slide delay-3">
+
+		<!-- BOX 1 -->
+		<div class="section-box">
+			<h3>🌸 What Inspires Me</h3>
+
+			<div class="flip-mini">
+				<div class="flip-inner">
+					<div class="flip-front"><img src="images/matcha.jpeg"></div>
+					<div class="flip-back"><img src="images/raining.jpeg"></div>
+				</div>
+			</div>
+
+			<ul>
+				<li>Soft mornings and rainy evenings</li>
+				<li>People who are kind and gentle</li>
+				<li>Matcha and quiet music</li>
+				<li>Beautiful little moments that feel like peace</li>
+			</ul>
+		</div>
+
+		<!-- BOX 2 -->
+		<div class="section-box">
+			<h3>🍰 My Little Joys</h3>
+
+			<div class="flip-mini">
+				<div class="flip-inner">
+					<div class="flip-front"><img src="images/camera.jpeg"></div>
+					<div class="flip-back"><img src="images/journal.jpeg"></div>
+				</div>
+			</div>
+
+			<ul>
+				<li>Taking film-like photos with my camera ✨</li>
+				<li>Writing random thoughts in my journal 🌷</li>
+				<li>Going on late evening walks 🌙</li>
+				<li>Laughing with people I love 🎀</li>
+			</ul>
+		</div>
+
+		<!-- BOX 3 -->
+		<div class="section-box">
+			<h3>🌙 Future Dreams</h3>
+
+			<div class="flip-mini">
+				<div class="flip-inner">
+					<div class="flip-front"><img src="images/cafe.jpeg"></div>
+					<div class="flip-back"><img src="images/travel.jpeg"></div>
+				</div>
+			</div>
+
+			<ul>
+				<li>Travel to a calm, cozy place by the sea</li>
+				<li>Keep growing and learning new creative skills</li>
+				<li>Open a small cozy café or studio someday</li>
+			</ul>
+		</div>
+
+	</div>
+
+	<a href="education.html" class="go-education-btn fade-slide delay-3">
+		Go to My Education ♡
+	</a>
+
+</main>
+
+<footer>
+	<p>&copy; 2025 This website is for educational purposes only | With Love, Syamimi </p>
+</footer>
+</body>
+</html>

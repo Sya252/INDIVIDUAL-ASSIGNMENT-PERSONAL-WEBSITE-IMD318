@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<title>Education</title>
+	<style>
+		body {
+			background: url("images/education.jfif") no-repeat center center fixed;
+			background-size: cover;
+			font-family: Lucida;
+			text-align: center;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+			filter: brightness(80%);
+		}
+
+		header {
+			background-color: maroon;
+			color: #F5DEB3;
+			padding: 20px;
+			text-align: center;
+		}
+
+		nav {
+			display: flex;
+			justify-content: center;
+			gap: 15px;
+			flex-wrap: wrap;
+			background-color: #EED8AE;
+			padding: 12px 20px;
+			margin: 0;
+			box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+		}
+
+		nav a {
+			background-color: #F5E6C5;
+			color: maroon;
+			text-decoration: none;
+			padding: 10px 20px;
+			border-radius: 25px;
+			font-weight: bold;
+			transition: all 0.3s ease;
+			box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+		}
+
+		nav a:hover {
+			background-color: maroon;
+			color: #F5E6C5;
+			transform: translateY(-2px);
+			box-shadow: 0 4px 10px rgba(128,0,0,0.3);
+		}
+
+		main {
+			flex: 1;
+			background-color: rgba(255, 218, 185, 0.85); /* peachpuff with transparency */
+			padding: 40px 20px;
+			text-align: center;
+		}
+
+		footer {
+			background: maroon;
+			color: sandybrown;
+			padding: 20px;
+			text-align: center;
+			font-family: Lucida;
+		}
+
+		h2 {
+			color: maroon;
+			font-size: 28px;
+			font-family: Lucida; /* same as index */
+			margin-bottom: 10px;
+			opacity: 0;
+			animation: fadeIn 1.5s forwards;
+		}
+
+		p.quote {
+			font-size: 18px;
+			font-style: italic;
+			color: #5b3a3a;
+			margin-bottom: 30px;
+			opacity: 0;
+			animation: fadeIn 2s forwards;
+			animation-delay: 0.5s;
+		}
+
+		.polaroid-container {
+			display: flex;
+			justify-content: center;
+			gap: 30px;
+			flex-wrap: wrap;
+			margin-bottom: 40px;
+			opacity: 0;
+			animation: fadeIn 2s forwards;
+			animation-delay: 1s;
+		}
+
+		.polaroid {
+			background: #fff;
+			padding: 20px 15px 30px 15px;
+			border-radius: 12px;
+			box-shadow: 4px 8px 20px rgba(0,0,0,0.3), 0 0 15px rgba(255, 200, 150, 0.2);
+			transition: transform 0.4s, box-shadow 0.4s;
+			width: 250px;
+			text-align: center;
+			position: relative;
+			animation: float 3s ease-in-out infinite;
+			overflow: visible;
+		}
+
+		/* Decorative scrapbook elements behind polaroids */
+		.polaroid::before {
+			content: "✦";
+			position: absolute;
+			font-size: 24px;
+			color: rgba(255, 215, 180, 0.5);
+			top: -15px;
+			right: -10px;
+			transform: rotate(20deg);
+			animation: twinkle 2s infinite alternate;
+		}
+
+		.polaroid::after {
+			content: "❁";
+			position: absolute;
+			font-size: 18px;
+			color: rgba(255, 200, 150, 0.4);
+			bottom: -10px;
+			left: -15px;
+			transform: rotate(-15deg);
+			animation: twinkle 2.5s infinite alternate;
+		}
+
+		/* Different rotation for each polaroid */
+		.polaroid:nth-child(1) { transform: rotate(-3deg); }
+		.polaroid:nth-child(2) { transform: rotate(2deg); }
+		.polaroid:nth-child(3) { transform: rotate(-1deg); }
+
+		.polaroid img {
+			width: 160px;
+			height: 160px;
+			border-radius: 10px;
+			object-fit: cover;
+			margin-bottom: 10px;
+		}
+
+		.polaroid p {
+			font-size: 16px;
+			color: #5b3a3a;
+			margin: 0;
+			text-align: justify;
+			line-height: 1.5;
+		}
+
+		.polaroid:hover {
+			transform: rotate(0deg) scale(1.1);
+			box-shadow: 6px 12px 25px rgba(0,0,0,0.4), 0 0 30px rgba(255, 200, 150, 0.3);
+		}
+
+		.ribbon {
+			position: absolute;
+			top: -10px;
+			left: -10px;
+			background: maroon;
+			color: #F5DEB3;
+			padding: 5px 10px;
+			font-size: 14px;
+			border-radius: 5px;
+			box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+		}
+
+		.divider {
+			font-size: 20px;
+			color: maroon;
+			margin: 25px 0;
+			opacity: 0;
+			animation: fadeIn 2s forwards;
+			animation-delay: 1.5s;
+		}
+
+		.explore-btn {
+			background-color: maroon;
+			color: #F5DEB3;
+			text-decoration: none;
+			padding: 12px 25px;
+			border-radius: 25px;
+			font-weight: bold;
+			box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+			transition: all 0.3s ease;
+			display: inline-block;
+			margin-top: 15px;
+			opacity: 0;
+			animation: fadeIn 2s forwards;
+			animation-delay: 2.5s;
+		}
+
+		.explore-btn:hover {
+			background-color: #F5DEB3;
+			color: maroon;
+			transform: translateY(-2px);
+			box-shadow: 0 4px 10px rgba(128,0,0,0.3);
+		}
+
+		@keyframes fadeIn {
+			to { opacity: 1; }
+		}
+
+		/* Floating animation for polaroids */
+		@keyframes float {
+			0% { transform: translateY(0); }
+			50% { transform: translateY(-10px); }
+			100% { transform: translateY(0); }
+		}
+
+		/* Twinkling decorative elements */
+		@keyframes twinkle {
+			0% { opacity: 0.4; transform: rotate(20deg) scale(1); }
+			50% { opacity: 1; transform: rotate(25deg) scale(1.1); }
+			100% { opacity: 0.4; transform: rotate(20deg) scale(1); }
+		}
+
+		@media screen and (max-width: 900px) {
+			.polaroid-container {
+				flex-direction: column;
+				align-items: center;
+			}
+		}
+	</style>
+</head>
+<body>
+<header>
+	<h1><b>BETWEEN QUIET DAYS ˚.🎀༘⋆</b></h1>
+</header>
+
+<nav>
+	<a href="index.html">Home</a>
+	<a href="about me.html">About Me</a>
+	<a href="education.html">Education</a>
+	<a href="expertise.html">Expertise</a>
+	<a href="family.html">Family</a>
+	<a href="friends.html">Friends</a>
+	<a href="gallery.html">Gallery</a>
+	<a href="favourite.html">Favourite</a>
+</nav>
+
+<main>
+	<h2>MY EDUCATION JOURNEY ♡</h2>
+	<p class="quote">Learning, growing, and chasing dreams — here's a peek into my academic path ♡</p>
+
+	<div class="polaroid-container">
+		<div class="polaroid">
+			<div class="ribbon">🌟 Primary</div>
+			<img src="images/sktbr2.jfif" alt="Primary School">
+			<p><b>Sekolah Kebangsaan Taman Bunga Raya 2 (SKTBR2)</b><br><br></br>2012 - 2017<br></br>This is where my little journey started SKTBR2, from 2012 until 2017. I remember walking into school with wide eyes, curious about everything around me. Every day was a mix of learning, laughter, and small adventures with friends. Some days were tricky, some were full of fun, but every moment added to who I am today. Looking back, it’s the little memories the games, the lessons, and the smiles that feel the warmest.</p>
+		</div>
+		<div class="polaroid">
+			<div class="ribbon">🎒 Secondary</div>
+			<img src="images/smktbr1.jfif" alt="Secondary School">
+			<p><b>Sekolah Menengah Kebangsaan Taman Bunga Raya 1 (SMKTBR1)</b><br></b><br>2018 - 2022<br></br>This is the chapter where I grew a little braver SMKTBR1, from 2018 until 2022.I walked in as a kid still figuring things out, and somewhere along the way, I learned more about myself, my friends, and the world around me. The days were a mix of rush, laughter, late-night studies, and moments that felt big at the time. Some challenges shaped me, some memories stayed soft, but all of them taught me something. Looking back, it’s the inside jokes, the small wins, and the people I met that make those years feel warm.</p>
+		</div>
+		<div class="polaroid">
+			<div class="ribbon">🎓 University</div>
+			<img src="images/uitm.png" alt="Higher Education">
+			<p><b>Universiti Teknologi MARA (UiTM) Machang, Kelantan</b><br></b><br>2023 - Present<br></br>Universiti Teknologi MARA (UiTM), from 2023 until now, feels like a world opening slowly before me.I walk through corridors of ideas, laughter, and quiet discoveries, learning not just from books but from moments between classes.Some days stretch long, some pass in a blink, yet each leaves a trace friendships formed, lessons learned, and small triumphs that feel like sunlight.This chapter is still unfolding, and with every step, I feel myself growing, exploring, and finding the colors of who I am becoming.</p>
+		</div>
+	</div>
+
+	<div class="divider">︵‿︵‿୨♡୧‿︵‿︵</div>
+
+	<a class="explore-btn" href="expertise.html">Go to My Expertise ♡</a>
+</main>
+
+<footer>
+	<p>&copy; 2025 This website is for educational purposes only | With Love, Syamimi </p>
+</footer>
+</body>
+</html>

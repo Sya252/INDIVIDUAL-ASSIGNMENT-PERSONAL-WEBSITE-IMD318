@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Friends</title>
+    <style>
+        body {
+            background: url("images/friends.jfif") no-repeat center center fixed;
+            background-size: cover;
+            font-family: Lucida;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            filter: brightness(80%);
+        }
+
+        header {
+            background-color: maroon;
+            color: #F5DEB3;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            background-color: #EED8AE;
+            padding: 12px 20px;
+            margin: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        nav a {
+            background-color: #F5E6C5;
+            color: maroon;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+        }
+
+        nav a:hover {
+            background-color: maroon;
+            color: #F5E6C5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(128,0,0,0.3);
+        }
+
+        main {
+            flex: 1;
+            background-color: rgba(255, 218, 185, 0.85);
+            padding: 40px 20px;
+            text-align: center;
+            backdrop-filter: blur(4px);
+        }
+
+        h2 {
+            font-size: 28px;
+            color: black;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        p.quote {
+            font-size: 18px;
+            font-style: italic;
+            color: #5b3a3a;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+            animation-delay: 0.5s;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        /* BOOK CONTAINER */
+        .book-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+            perspective: 1200px;
+        }
+
+        /* UPDATED WITH DOODLE PATTERN */
+        .book-card {
+            width: 250px;
+            height: 320px;
+            background: #fff;
+            border-radius: 14px;
+            padding: 8px;
+            border: 3px solid #f7e8d9;
+            outline: 2px dashed #e0c3a8;
+            outline-offset: -10px;
+
+            background-image:
+                url("images/pattern-doodle.jfif"),
+                radial-gradient(circle at top left, rgba(255,240,220,0.7), transparent 70%),
+                radial-gradient(circle at bottom right, rgba(255,220,220,0.55), transparent 70%);
+            background-size: 180px, cover, cover;
+            background-repeat: repeat;
+
+            perspective: 1000px;
+            animation: swingFloat 4s ease-in-out infinite;
+            box-shadow: 0 0 15px rgba(255,255,255,0.25);
+        }
+
+        .book-card:hover {
+            box-shadow: 0 0 25px rgba(255,255,255,0.55);
+        }
+
+        .book-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .book-card:hover .book-inner {
+            transform: rotateY(180deg);
+        }
+
+        .book-front, .book-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.95);
+            padding: 10px;
+        }
+
+        .book-front img, .book-back img {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin: 5px;
+            border: 2px solid #f0d8c2;
+        }
+
+        .book-back {
+            transform: rotateY(180deg);
+        }
+
+        .book-name {
+            margin-top: 10px;
+            font-weight: bold;
+            color: maroon;
+            font-size: 18px;
+        }
+
+        .book-desc {
+            font-size: 14px;
+            color: #5b3a3a;
+            margin-top: 8px;
+            line-height: 1.4;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        /* BUTTON UNDER GALLERY */
+        .bottom-button {
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+
+        .bottom-button a {
+            background-color: maroon;
+            color: #F5DEB3;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+        }
+
+        .bottom-button a:hover {
+            background-color: #F5DEB3;
+            color: maroon;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+        }
+
+        footer {
+            background-color: maroon;
+            color: sandybrown;
+            padding: 20px;
+            text-align: center;
+            font-family: Lucida;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        @keyframes swingFloat {
+            0%   { transform: rotateZ(-2deg) translateY(0px); }
+            25%  { transform: rotateZ(2deg) translateY(-8px); }
+            50%  { transform: rotateZ(-2deg) translateY(0px); }
+            75%  { transform: rotateZ(2deg) translateY(-8px); }
+            100% { transform: rotateZ(-2deg) translateY(0px); }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1><b>BETWEEN QUIET DAYS ˚.🎀༘⋆</b></h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about me.html">About Me</a>
+    <a href="education.html">Education</a>
+    <a href="expertise.html">Expertise</a>
+    <a href="family.html">Family</a>
+    <a href="friends.html">Friends</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="favourite.html">Favourite</a>
+</nav>
+
+<main>
+    <h2> LAUGHS, MEMORY AND REAL ONES ONLY ♡</h2>
+    <p class="quote">Friends are the family we choose for ourselves , here are some of my favorite people ‧₊˚ ☁️⋅♡🪐༘⋆</p>
+
+    <div class="book-container">
+
+        <!-- BOOK 1 -->
+        <div class="book-card">
+            <div class="book-inner">
+                <div class="book-front">
+                    <img src="images/aishah 1.jpg">
+                    <img src="images/aishah 2.jpg">
+                    <div class="book-name">Aicahh 𓍢🌷͙֒</div>
+                </div>
+                <div class="book-back">
+                    <div class="book-name">Aisyah</div>
+                    <div class="book-desc">Always making me laugh, full of positivity and kind soul. ❤</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOOK 2 -->
+        <div class="book-card">
+            <div class="book-inner">
+                <div class="book-front">
+                    <img src="images/auni 1.jpg">
+                    <img src="images/auni 2.jpg">
+                    <div class="book-name">Auni 𓍢🌷͙֒</div>
+                </div>
+                <div class="book-back">
+                    <div class="book-name">Nurul Auni</div>
+                    <div class="book-desc">Smiles that turn ordinary moments into memories. ❤</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOOK 3 -->
+        <div class="book-card">
+            <div class="book-inner">
+                <div class="book-front">
+                    <img src="images/liza 1.jpg">
+                    <img src="images/liza 2.jpg">
+                    <div class="book-name">Mekzaa 𓍢🌷͙֒</div>
+                </div>
+                <div class="book-back">
+                    <div class="book-name">Siti Nurhaliza</div>
+                    <div class="book-desc">A warm presence that turns quiet days into something brighter. ❤</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOOK 4 -->
+        <div class="book-card">
+            <div class="book-inner">
+                <div class="book-front">
+                    <img src="images/paana 1.jpg">
+                    <img src="images/paana 2.jpg">
+                    <div class="book-name">Paana 𓍢🌷͙֒</div>
+                </div>
+                <div class="book-back">
+                    <div class="book-name">Nurul Farhana</div>
+                    <div class="book-desc">Unspoken comfort that feels like coming home. ❤</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOOK 5 -->
+        <div class="book-card">
+            <div class="book-inner">
+                <div class="book-front">
+                    <img src="images/kak jaa 1.jpg">
+                    <img src="images/kak jaa 2.jpg">
+                    <div class="book-name">Kak Jaa 𓍢🌷͙֒</div>
+                </div>
+                <div class="book-back">
+                    <div class="book-name">Azizah</div>
+                    <div class="book-desc">The type of soul that makes life feel a little more magical. ❤</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOOK 6 -->
+        <div class="book-card">
+            <div class="book-inner">
+                <div class="book-front">
+                    <img src="images/kak ati 1.jpg">
+                    <img src="images/kak ati 2.jpg">
+                    <div class="book-name">Kak Ati 𓍢🌷͙֒ </div>
+                </div>
+                <div class="book-back">
+                    <div class="book-name">Nurul Shamimi</div>
+                    <div class="book-desc">Positivity that blooms even in unexpected places. ❤</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOOK 7 -->
+        <div class="book-card">
+            <div class="book-inner">
+                <div class="book-front">
+                    <img src="images/kak sina 1.jpg">
+                    <img src="images/kak sina 2.jpg">
+                    <div class="book-name">Kak Sina 𓍢🌷͙֒ </div>
+                </div>
+                <div class="book-back">
+                    <div class="book-name">Farah Hasina</div>
+                    <div class="book-desc">A spark of happiness that appears at just the right time. ❤</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOOK 8 -->
+        <div class="book-card">
+            <div class="book-inner">
+                <div class="book-front">
+                    <img src="images/ain 1.jpg">
+                    <img src="images/ain 2.jpg">
+                    <div class="book-name">Ain 𓍢🌷͙֒ </div>
+                </div>
+                <div class="book-back">
+                    <div class="book-name">Ain Nabilah</div>
+                    <div class="book-desc">Warm energy that stays even when the day is tough. ❤</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOOK 9 -->
+        <div class="book-card">
+            <div class="book-inner">
+                <div class="book-front">
+                    <img src="images/roomate 1.jpg">
+                    <img src="images/roomate 2.jpg">
+                    <div class="book-name">My Roomate 𓍢🌷͙֒ </div>
+                </div>
+                <div class="book-back"> 
+                    <div class="book-name">Kak Syira, Kak Jaa, Kak Ati</div>
+                    <div class="book-desc">A cozy bond built from late nights, messy desks, and honest talks. ❤</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOOK 10 -->
+        <div class="book-card">
+            <div class="book-inner">
+                <div class="book-front">
+                    <img src="images/classmate 1.jpg">
+                    <img src="images/classmate 2.jpg">
+                    <div class="book-name">Classmate 𓍢🌷͙֒ </div>
+                </div>
+                <div class="book-back">
+                    <div class="book-name">CDIM110</div>
+                    <div class="book-desc">The quiet comfort of someone who understands the same struggles. ❤</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- BUTTON UNDER BOXES -->
+    <div class="bottom-button">
+        <a href="gallery.html">Go To Full Gallery 📷</a>
+    </div>
+
+</main>
+
+<footer>
+    <p>&copy; 2025 This website is for educational purposes only | With Love, Syamimi</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Favourite</title>
+<style>
+body {
+    font-family: Lucida;
+    margin: 0;
+    padding: 0;
+    background: url("images/cozy.jfif") no-repeat center center fixed;
+    background-size: cover;
+    filter: brightness(80%);
+    color: #5b3a3a;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: maroon;
+    color: #F5DEB3;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    background-color: #EED8AE;
+    padding: 12px 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+nav a {
+    background-color: #F5E6C5;
+    color: maroon;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.25s ease;
+}
+
+nav a:hover {
+    background-color: maroon;
+    color: #F5E6C5;
+    transform: translateY(-2px);
+}
+
+main {
+    flex: 1;
+    padding: 40px 20px;
+    background-color: rgba(255, 235, 220, 0.65);
+    backdrop-filter: blur(5px);
+}
+
+h2 {
+    font-size: 28px;
+    color: black;
+    margin-bottom: 25px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideIn 1s forwards;
+    text-align: center;
+}
+
+p.quote {
+    font-size: 18px;
+    font-style: italic;
+    color: #5b3a3a;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    animation-delay: 0.5s;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+.fav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    justify-items: center;
+}
+
+/* Flip Card Container */
+.fav-card {
+    width: 220px;
+    height: 250px;
+    perspective: 1000px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideIn 0.8s forwards;
+}
+
+/* Flip Inner */
+.fav-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Hover flip */
+.fav-card:hover .fav-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Card Faces */
+.fav-card-front, .fav-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.fav-card-front {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fav-card-front img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.fav-card-back {
+    background-color: #fff;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fav-card-back img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.fav-card-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: maroon;
+    padding: 12px;
+    text-align: center;
+}
+
+.fav-card .heart-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 20px;
+    color: #ff4d6d;
+    animation: pulseHeart 1.5s infinite;
+}
+
+.fav-btn-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.fav-btn {
+    background-color: maroon;
+    color: #F5DEB3;
+    font-family: Lucida;
+    padding: 12px 35px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.fav-btn:hover {
+    background-color: #F5DEB3;
+    color: maroon;
+}
+
+footer {
+    background-color: maroon;
+    color: sandybrown;
+    padding: 18px;
+    text-align: center;
+}
+
+/* Animations */
+@keyframes fadeSlideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseHeart {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1><b>BETWEEN QUIET DAYS ˚.🎀༘⋆</b></h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about me.html">About Me</a>
+    <a href="education.html">Education</a>
+    <a href="expertise.html">Expertise</a>
+    <a href="family.html">Family</a>
+    <a href="friends.html">Friends</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="favourite.html">Favourite</a>
+</nav>
+
+<main>
+    <h2>TREASURES THAT WARM THE HEART ˚☁️⋅♡</h2>
+     <p class="quote">A space for all things that make the soul warm ₍ᐢ. .ᐢ₎ ₊˚⊹♡</p>
+
+    <div class="fav-grid">
+        <!-- Flip Card 1 -->
+        <div class="fav-card">
+            <div class="fav-card-inner">
+                <div class="fav-card-front">
+                    <div class="heart-badge">❤</div>
+                    <img src="images/switz 1.jfif" alt="Flower">
+                    <div class="fav-card-title">Travel 🗺️⁀જ✈︎</div>
+                </div>
+                <div class="fav-card-back">
+                    <div class="heart-badge">❤</div>
+                    <img src="images/switz 2.jfif" alt="Flower 2">
+                    <div class="fav-card-title">Dream Place: Switzerland</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flip Card 2 -->
+        <div class="fav-card">
+            <div class="fav-card-inner">
+                <div class="fav-card-front">
+                    <div class="heart-badge">❤</div>
+                    <img src="images/novel 1.jfif">
+                    <div class="fav-card-title">Read Novel 📚₊˚⊹♡</div>
+                </div>
+                <div class="fav-card-back">
+                    <div class="heart-badge">❤</div>
+                    <img src="images/novel 2.jfif">
+                    <div class="fav-card-title">Favourite Novel by Holly Jackson</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flip Card 3 -->
+        <div class="fav-card">
+            <div class="fav-card-inner">
+                <div class="fav-card-front">
+                    <div class="heart-badge">❤</div>
+                    <img src="images/cook 1.jfif" alt="Fraser Hill">
+                    <div class="fav-card-title">Cooking and Baking 🥘𓌉𓇋₊˚</div>
+                </div>
+                <div class="fav-card-back">
+                    <div class="heart-badge">❤</div>
+                    <img src="images/cook 2.jpg" alt="Fraser Hill 2">
+                    <div class="fav-card-title">Veggies Fritattata I make</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flip Card 4 -->
+        <div class="fav-card">
+            <div class="fav-card-inner">
+                <div class="fav-card-front">
+                    <div class="heart-badge">❤</div>
+                    <img src="images/flower 2.jpg" alt="Flower 2">
+                    <div class="fav-card-title">Photography Practice ˙✧📸</div>
+                </div>
+                <div class="fav-card-back">
+                    <div class="heart-badge">❤</div>
+                    <img src="images/flower.jpg" alt="Flower 1">
+                    <div class="fav-card-title">My Photo Results</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fav-btn-container">
+        <button class="fav-btn" onclick="window.location.href='index.html'">Back to Home 𓆩❤︎𓆪</button>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 This website is for educational purposes only | With Love, Syamimi</p>
+</footer>
+
+<script>
+// Auto-flip cards every 4 seconds
+const cards = document.querySelectorAll('.fav-card-inner');
+
+let flipState = [];
+cards.forEach(() => flipState.push(false));
+
+setInterval(() => {
+    cards.forEach((card, index) => {
+        flipState[index] = !flipState[index];
+        card.style.transform = flipState[index] ? 'rotateY(180deg)' : 'rotateY(0deg)';
+    });
+}, 4000);
+</script>
+
+</body>
+</html>

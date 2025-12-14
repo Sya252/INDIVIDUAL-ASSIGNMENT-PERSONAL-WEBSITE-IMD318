@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<title>Home Page</title>
+	<style>
+		body {
+			background: url("images/index.jfif") no-repeat center center fixed;
+			background-size: cover;
+			font-family: Lucida;
+			text-align: center;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+			filter: brightness(80%);
+		}
+
+		/* Keep header same */
+		header {
+			background-color: maroon;
+			color: #F5DEB3;
+			padding: 20px;
+			text-align: center;
+		}
+
+		/* Keep navigation same */
+		nav {
+			display: flex;
+			justify-content: center;
+			gap: 15px;
+			flex-wrap: wrap;
+			background-color: #EED8AE;
+			padding: 12px 20px;
+			margin: 0;
+			box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+		}
+
+		nav a {
+			background-color: #F5E6C5;
+			color: maroon;
+			text-decoration: none;
+			padding: 10px 20px;
+			border-radius: 25px;
+			font-weight: bold;
+			transition: all 0.3s ease;
+			box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+		}
+
+		nav a:hover {
+			background-color: maroon;
+			color: #F5E6C5;
+			transform: translateY(-2px);
+			box-shadow: 0 4px 10px rgba(128,0,0,0.3);
+		}
+
+		main {
+			flex: 1;
+			background-color: rgba(255, 218, 185, 0.85); /* peachpuff with transparency */
+			padding: 40px 20px;
+			text-align: center;
+			backdrop-filter: blur(4px);
+		}
+
+		footer {
+			background: maroon;
+			color: sandybrown;
+			padding: 20px;
+			text-align: center;
+			font-family: Lucida;
+		}
+
+		h2 {
+			font-size: 28px;
+			color: maroon;
+			margin-bottom: 10px;
+			opacity: 0;
+			animation: fadeIn 1.5s forwards;
+		}
+
+		p.quote {
+			font-size: 18px;
+			font-style: italic;
+			color: #5b3a3a;
+			margin-bottom: 30px;
+			opacity: 0;
+			animation: fadeIn 2s forwards;
+			animation-delay: 0.5s;
+		}
+
+		.polaroid-container {
+			display: flex;
+			justify-content: center;
+			gap: 15px;
+			margin-bottom: 40px;
+			flex-wrap: wrap;
+			opacity: 0;
+			animation: fadeIn 2s forwards;
+			animation-delay: 1s;
+		}
+
+		.polaroid {
+			background: #fff;
+			padding: 10px 10px 25px 10px;
+			border-radius: 12px;
+			box-shadow: 2px 4px 10px rgba(0,0,0,0.15);
+			transform: rotate(-2deg);
+			transition: transform 0.3s;
+		}
+
+		.polaroid img {
+			width: 120px;
+			height: 120px;
+			border-radius: 8px;
+			object-fit: cover;
+		}
+
+		.polaroid:hover {
+			transform: rotate(0deg) scale(1.05);
+		}
+
+		.divider {
+			font-size: 20px;
+			color: maroon;
+			margin: 25px 0;
+			opacity: 0;
+			animation: fadeIn 2s forwards;
+			animation-delay: 1.5s;
+		}
+
+		.section-list {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 10px;
+			font-size: 16px;
+			color: #5b3a3a;
+			margin-bottom: 40px;
+			opacity: 0;
+			animation: fadeIn 2s forwards;
+			animation-delay: 2s;
+		}
+
+		.section-list span {
+			margin-bottom: 5px;
+		}
+
+		.explore-btn {
+			background-color: maroon;
+			color: #F5DEB3;
+			text-decoration: none;
+			padding: 12px 25px;
+			border-radius: 25px;
+			font-weight: bold;
+			box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+			transition: all 0.3s ease;
+			display: inline-block;
+			margin-top: 15px;
+			opacity: 0;
+			animation: fadeIn 2s forwards;
+			animation-delay: 2.5s;
+		}
+
+		.explore-btn:hover {
+			background-color: #F5DEB3;
+			color: maroon;
+			transform: translateY(-2px);
+			box-shadow: 0 4px 10px rgba(128,0,0,0.3);
+		}
+
+		@keyframes fadeIn {
+			to {
+				opacity: 1;
+			}
+		}
+
+		@media screen and (max-width: 900px) {
+			.polaroid-container {
+				flex-direction: column;
+				align-items: center;
+			}
+		}
+	</style>
+</head>
+<body>
+
+<header>
+	<h1><b>BETWEEN QUIET DAYS ˚.🎀༘⋆</b></h1>
+</header>
+
+<nav>
+	<a href="index.html">Home</a>
+	<a href="about me.html">About Me</a>
+	<a href="education.html">Education</a>
+	<a href="expertise.html">Expertise</a>
+	<a href="family.html">Family</a>
+	<a href="friends.html">Friends</a>
+	<a href="gallery.html">Gallery</a>
+	<a href="favourite.html">Favourite</a>
+</nav>
+
+<main>
+	<h2>HI GUYS! WELCOME TO MY PERSONAL WEBSITE ♡⸝⸝🧸⋆</h2>
+	<p class="quote">Collecting little moments, soft days & tiny joys — welcome to my space ♡</p>
+
+	<div class="polaroid-container">
+		<div class="polaroid"><img src="images/coffee.jpg">
+		<div class="polaroid"><img src="images/ice cream.jpg"></div>
+		<div class="polaroid"><img src="images/building.jpg"></div>
+	</div>
+
+	<div class="divider">₊˚ ✧ ━━━━⊱𝄞⊰━━━━ ✧ ₊˚</div>
+
+	<div class="section-list">
+		<span>✨ About Me – A Little Pice of Who I Am</span>
+		<span>🎓 Education – A Glimpse into My Journey</span>
+		<span>📘 Expertise – Gaining Experience, Growing Stronger</span>
+		<span>👨‍👩‍👧‍👦 Family – This My Family, Say Hi!</span>
+		<span>💗 Friends – Laughs, Memories and Real Ones Only</span>
+		<span>🖼️ Gallery – A Collections of Little Joy</span>
+		<span>🌸 Favourites – A Collections of My Heart's Pick</span>
+	</div>
+
+	<a class="explore-btn" href="about me.html">Explore My World ♡</a>
+</main>
+
+<footer>
+	<p>&copy; 2025 This website is for educational purposes only | With Love, Syamimi </p>
+</footer>
+
+</body>
+</html>
